@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { First } from "./components/first";
 
 export default function Home() {
   return (
@@ -14,8 +15,10 @@ export default function Home() {
           Please provide all current information accurately.
         </p>
       </div>
-      <div className="flex flex-col justify-between">
-        <div></div>
+      <div className="flex flex-col">
+        <div className="relative top-7">
+          <First />
+        </div>
       </div>
     </div>
   );
