@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { First } from "./components/first";
+import { First } from "./components/First";
+import { Second } from "./components/Second";
 
 export default function Home() {
   return (
@@ -17,7 +18,8 @@ export default function Home() {
       </div>
       <div className="flex flex-col">
         <div className="relative top-7">
-          <First />
+          {/* <First /> */}
+          <Second />
         </div>
       </div>
     </div>
