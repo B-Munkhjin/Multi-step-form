@@ -1,5 +1,7 @@
+"use client";
 import { Button } from "./Button";
 import { Input } from "./Input";
+import { useState } from "react";
 
 export const Second = () => {
   const text2 = "Continue 2/3&nbsp; &gt;";
@@ -10,7 +12,7 @@ export const Second = () => {
           <h2 className="font-semibold text-sm text-[#334155]">Email</h2>
           <h2 className="font-semibold text-sm text-[#E14942]">&nbsp; *</h2>
         </div>
-        <Input placeholder="Email" />
+        <Input placeholder="Email" type="" inputName="email" />
 
         <div className="flex flex-col gap-2">
           <div className="flex w-full">
@@ -19,7 +21,11 @@ export const Second = () => {
             </h2>
             <h2 className="font-semibold text-sm text-[#E14942]">&nbsp;*</h2>
           </div>
-          <Input placeholder="Phone number" />
+          <Input
+            placeholder="Phone number"
+            type="number"
+            inputName="phoneNumber"
+          />
         </div>
 
         <div className="flex flex-col gap-2">
@@ -27,7 +33,7 @@ export const Second = () => {
             <h2 className="font-semibold text-sm text-[#334155]">Password</h2>
             <h2 className="font-semibold text-sm text-[#E14942]">&nbsp;*</h2>
           </div>
-          <Input placeholder="Password" />
+          <Input placeholder="Password" type="number" inputName="password" />
         </div>
         <div className="flex flex-col gap-2">
           <div className="flex w-full">
@@ -36,7 +42,11 @@ export const Second = () => {
             </h2>
             <h2 className="font-semibold text-sm text-[#E14942]">&nbsp;*</h2>
           </div>
-          <Input placeholder="Confirm password" />
+          <Input
+            placeholder="Confirm password"
+            type="number"
+            inputName="confirmPassword"
+          />
         </div>
       </div>
       <div className="flex gap-2 ">
@@ -44,7 +54,7 @@ export const Second = () => {
           <Button text="&lt; Back" />
         </div>
         <div className="flex justify-center bg-[#121316] text-white w-70 py-2.5 px-1 text-base rounded-md font-medium">
-          <Button text="Continue 1/3&nbsp; &gt;" />
+          <Button text="Continue 2/3&nbsp; &gt;" />
         </div>
       </div>
     </div>

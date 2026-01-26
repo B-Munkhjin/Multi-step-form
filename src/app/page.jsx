@@ -18,8 +18,8 @@ export default function Home() {
       </div>
       <div className="flex flex-col">
         <div className="relative top-7">
-          {/* <First /> */}
-          <Second />
+          <First />
+          {/* <Second /> */}
         </div>
       </div>
     </div>
