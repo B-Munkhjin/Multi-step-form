@@ -3,35 +3,33 @@ import { Button } from "./Button";
 import { Input } from "./Input";
 import { useState } from "react";
 
-export const First = () => {
-  const [data, setData] = useState({
-    firstName: "",
-    lastName: "",
-    userName: "",
-  });
+export const First = ({ data, handleChange, onSubmit }) => {
+  // const [data, setData] = useState({
+  //   firstName: "",
+  //   lastName: "",
+  //   userName: "",
+  // });
   const [error, setError] = useState({
     firstName: "",
     lastName: "",
     userName: "",
   });
 
-  // console.log("error: ", error);
-
-  const handleChange = (e) => {
-    setData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  };
   // (/^[а-яА-ЯӨөҮүЁё\s-]+$/.test(formData.firstName))
-  const onSubmit = () => {
+  const handleSubmit = () => {
+    let valid = true;
     if (data.firstName === "") {
       setError((prev) => ({
         ...prev,
         firstName: "First name cannot be empty.",
       }));
+      valid = false;
     } else if (/[^a-zA-Z]/.test(data.firstName)) {
       setError((prev) => ({
         ...prev,
         firstName: "First name cannot contain special characters or numbers.",
       }));
+      valid = false;
     } else {
       setError((prev) => ({
         ...prev,
@@ -44,11 +42,13 @@ export const First = () => {
         ...prev,
         lastName: "First name cannot be empty.",
       }));
+      valid = false;
     } else if (/[^a-zA-Z]/.test(data.lastName)) {
       setError((prev) => ({
         ...prev,
         lastName: "Last name cannot contain special characters or numbers.",
       }));
+      valid = false;
     } else {
       setError((prev) => ({
         ...prev,
@@ -61,17 +61,20 @@ export const First = () => {
         ...prev,
         userName: "First name cannot be empty.",
       }));
+      valid = false;
     } else if (/[^a-zA-Z]/.test(data.userName)) {
       setError((prev) => ({
         ...prev,
         userName: "First name cannot contain special characters or numbers.",
       }));
+      valid = false;
     } else {
       setError((prev) => ({
         ...prev,
         userName: "",
       }));
     }
+    if (valid) onSubmit();
   };
 
   return (
@@ -122,7 +125,7 @@ export const First = () => {
       </div>
       <div>
         <div className=" bg-[#121316] w-full text-white py-2.5 px-3 flex justify-center text-base rounded-md">
-          <Button text="Continue 1/3&nbsp; &gt;" onClick={onSubmit} />
+          <Button text="Continue 1/3&nbsp; &gt;" onClick={handleSubmit} />
         </div>
       </div>
     </div>

@@ -1,15 +1,15 @@
 "use client";
 import { Button } from "./Button";
 import { Input } from "./Input";
-import { use, useState } from "react";
+import { useState } from "react";
 
-export const Second = () => {
-  const [data, setData] = useState({
-    email: "",
-    phoneNumber: "",
-    password: "",
-    confirmPassword: "",
-  });
+export const Second = ({ data, handleChange, onSubmit, onBack }) => {
+  // const [data, setData] = useState({
+  //   email: "",
+  //   phoneNumber: "",
+  //   password: "",
+  //   confirmPassword: "",
+  // });
   const [error, setError] = useState({
     email: "",
     phoneNumber: "",
@@ -17,23 +17,25 @@ export const Second = () => {
     confirmPassword: "",
   });
   console.log("error: ", error);
-  const handleChange = (e) => {
-    setData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  };
-  const onSubmit = () => {
+
+  const handleSubmit = () => {
     console.log("button daragdaj bn");
+
+    let valid = true;
 
     if (data.email === "") {
       setError((prev) => ({
         ...prev,
         email: "Email cannot be empty.",
       }));
+      valid = false;
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
       //email requirement @gmail.com
       setError((prev) => ({
         ...prev,
         email: "Please provide a valid email address.",
       }));
+      valid = false;
     } else {
       setError((prev) => ({
         ...prev,
@@ -46,11 +48,13 @@ export const Second = () => {
         ...prev,
         phoneNumber: "Phone number cannot be empty.",
       }));
+      valid = false;
     } else if (!/^\+?\d{8}$/.test(data.phoneNumber)) {
       setError((prev) => ({
         ...prev,
         phoneNumber: "Please enter a valid phone number.",
       }));
+      valid = false;
     } else {
       setError((prev) => ({
         ...prev,
@@ -63,12 +67,14 @@ export const Second = () => {
         ...prev,
         password: "Password cannot be empty.",
       }));
+      valid = false;
     } else if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6}$/.test(data.password)) {
       setError((prev) => ({
         ...prev,
         password:
           "Password must be exact 6 character with at least one letter and one number.",
       }));
+      valid = false;
     } else {
       setError((prev) => ({
         ...prev,
@@ -80,21 +86,22 @@ export const Second = () => {
         ...prev,
         confirmPassword: "Please confirm password.",
       }));
+      valid = false;
     } else if (data.password !== data.confirmPassword) {
       setError((prev) => ({
         ...prev,
         confirmPassword: "Passwords do not match. Please try again.",
       }));
+      valid = false;
     } else {
       setError((prev) => ({
         ...prev,
         confirmPassword: "",
       }));
     }
+    if (valid) onSubmit();
   };
-  // const [hide, setHide] = useState();
-  // const onHide = () => {};
-  // hidden and visible pictures are downloaded if i want to i would do that show password thing
+
   return (
     <div className="flex flex-col justify-between">
       <div className="flex flex-col gap-2">
@@ -128,18 +135,15 @@ export const Second = () => {
           <h2 className="font-semibold text-sm text-[#334155]">Password</h2>
           <h2 className="font-semibold text-sm text-[#E14942]">&nbsp;*</h2>
         </div>
-        <div className="flex justify-between px-2 items-center">
-          <Input
-            className="w-full h-11 rounded-lg border p-3 text-[#121316] "
-            placeholder="Password"
-            type="password"
-            inputName="password"
-            onChange={handleChange}
-          />
-          {/* <span onClick={onHide}>
-            <img src="/passwordHidden"></img>
-          </span> */}
-        </div>
+
+        <Input
+          className="w-full h-11 rounded-lg border p-3 text-[#121316] "
+          placeholder="Password"
+          type="password"
+          inputName="password"
+          onChange={handleChange}
+        />
+
         <p className="text-[#E14942] text-sm">{error.password}</p>
 
         <div className="flex w-full">
@@ -159,13 +163,12 @@ export const Second = () => {
       </div>
       <div className="flex gap-2 ">
         <div className="flex justify-center bg-white text-black w-32 text-base rounded-md border border-[#CBD5E1] font-medium">
-          <Button text="&lt; Back" />
+          <Button text="&lt; Back" onClick={onBack} />
         </div>
         <div className="flex justify-center bg-[#121316] text-white w-70 py-2.5 px-1 text-base rounded-md font-medium">
-          <Button text="Continue 2/3&nbsp; &gt;" onClick={onSubmit} />
+          <Button text="Continue 2/3&nbsp; &gt;" onClick={handleSubmit} />
         </div>
       </div>
     </div>
   );
-  //input oruulaad bolson bol border color tsenher bolno
 };

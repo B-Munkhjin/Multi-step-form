@@ -3,16 +3,16 @@ import { useState } from "react";
 import { Button } from "./Button";
 import { Input } from "./Input";
 
-export const Third = () => {
-  const [data, setData] = useState({
-    date: "",
-    img: "",
-  });
+export const Third = ({ data, handleChange, onSubmit, onBack }) => {
+  //   const [data, setData] = useState({
+  //     date: "",
+  //     img: "",
+  //   });
   const [error, setError] = useState({
     date: "",
     img: "",
   });
-  const onSubmit = () => {
+  const handleSubmit = () => {
     if (data.date === "") {
       setError((prev) => ({
         ...prev,
@@ -36,10 +36,9 @@ export const Third = () => {
         img: "",
       }));
     }
-  };
-
-  const handleChange = (e) => {
-    setData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    if (data.img === "" && data.date === "") {
+      setStep(step + 1);
+    }
   };
 
   const [preview, setPreview] = useState(null);
@@ -102,10 +101,10 @@ export const Third = () => {
 
       <div className="flex gap-2 ">
         <div className="flex justify-center bg-white text-black w-32 text-base rounded-md border border-[#CBD5E1] font-medium">
-          <Button text="&lt; Back" />
+          <Button text="&lt; Back" onClick={onBack} />
         </div>
         <div className="flex justify-center bg-[#121316] text-white w-70 py-2.5 px-1 text-base rounded-md font-medium">
-          <Button text="Continue 3/3&nbsp; &gt;" onClick={onSubmit} />
+          <Button text="Continue 3/3&nbsp; &gt;" onClick={handleSubmit} />
         </div>
       </div>
     </div>
