@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { First } from "./components/First";
 import { Second } from "./components/Second";
+import { Third } from "./components/Third";
 
 export default function Home() {
   return (
@@ -18,8 +19,9 @@ export default function Home() {
       </div>
       <div className="flex flex-col">
         <div className="relative top-7">
-          <First />
+          {/* <First /> */}
           {/* <Second /> */}
+          <Third />
         </div>
       </div>
     </div>

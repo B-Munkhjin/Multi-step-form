@@ -15,7 +15,7 @@ export const First = () => {
     userName: "",
   });
 
-  console.log("error: ", error);
+  // console.log("error: ", error);
 
   const handleChange = (e) => {
     setData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -82,6 +82,7 @@ export const First = () => {
           <h1 className="font-semibold text-sm text-[#E14942]">&nbsp; *</h1>
         </div>
         <Input
+          className="w-full h-11 rounded-lg border p-3 text-[#121316] "
           placeholder="First Name"
           type="text"
           inputName="firstName"
@@ -95,6 +96,7 @@ export const First = () => {
             <h1 className="font-semibold text-sm text-[#E14942]">&nbsp;*</h1>
           </div>
           <Input
+            className="w-full h-11 rounded-lg border p-3 text-[#121316] "
             placeholder="Last Name"
             type="text"
             inputName="lastName"
@@ -109,6 +111,7 @@ export const First = () => {
             <h1 className="font-semibold text-sm text-[#E14942]">&nbsp;*</h1>
           </div>
           <Input
+            className="w-full h-11 rounded-lg border p-3 text-[#121316] "
             placeholder="Username"
             type="text"
             inputName="userName"
