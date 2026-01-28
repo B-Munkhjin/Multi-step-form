@@ -4,22 +4,16 @@ import { Input } from "./Input";
 import { useState } from "react";
 
 export const Second = ({ data, handleChange, onSubmit, onBack }) => {
-  // const [data, setData] = useState({
-  //   email: "",
-  //   phoneNumber: "",
-  //   password: "",
-  //   confirmPassword: "",
-  // });
   const [error, setError] = useState({
     email: "",
     phoneNumber: "",
     password: "",
     confirmPassword: "",
   });
-  console.log("error: ", error);
+  // console.log("error: ", error);
 
   const handleSubmit = () => {
-    console.log("button daragdaj bn");
+    // console.log("button daragdaj bn");
 
     let valid = true;
 
@@ -103,14 +97,16 @@ export const Second = ({ data, handleChange, onSubmit, onBack }) => {
   };
 
   return (
-    <div className="flex flex-col justify-between">
+    <div className="flex flex-col justify-between h-132.5">
       <div className="flex flex-col gap-2">
         <div className="flex w-full">
           <h2 className="font-semibold text-sm text-[#334155]">Email</h2>
-          <h2 className="font-semibold text-sm text-[#E14942]">&nbsp; *</h2>
+          {error.date && (
+            <h2 className="font-semibold text-sm text-[#E14942]">&nbsp; *</h2>
+          )}
         </div>
         <Input
-          className="w-full h-11 rounded-lg border p-3 text-[#121316] "
+          className={`w-full h-11 rounded-lg border p-3  ${error.email ? " text-[#E14942]" : "text-[#121316]"}`}
           placeholder="Email"
           type="text"
           inputName="email"
@@ -120,10 +116,12 @@ export const Second = ({ data, handleChange, onSubmit, onBack }) => {
 
         <div className="flex w-full">
           <h2 className="font-semibold text-sm text-[#334155]">Phone number</h2>
-          <h2 className="font-semibold text-sm text-[#E14942]">&nbsp;*</h2>
+          {error.date && (
+            <h2 className="font-semibold text-sm text-[#E14942]">&nbsp; *</h2>
+          )}
         </div>
         <Input
-          className="w-full h-11 rounded-lg border p-3 text-[#121316] "
+          className={`w-full h-11 rounded-lg border p-3  ${error.phoneNumber ? " text-[#E14942]" : "text-[#121316]"}`}
           placeholder="Phone number"
           type="number"
           inputName="phoneNumber"
@@ -133,11 +131,13 @@ export const Second = ({ data, handleChange, onSubmit, onBack }) => {
 
         <div className="flex w-full">
           <h2 className="font-semibold text-sm text-[#334155]">Password</h2>
-          <h2 className="font-semibold text-sm text-[#E14942]">&nbsp;*</h2>
+          {error.date && (
+            <h2 className="font-semibold text-sm text-[#E14942]">&nbsp; *</h2>
+          )}
         </div>
 
         <Input
-          className="w-full h-11 rounded-lg border p-3 text-[#121316] "
+          className={`w-full h-11 rounded-lg border p-3  ${error.password ? " text-[#E14942]" : "text-[#121316]"}`}
           placeholder="Password"
           type="password"
           inputName="password"
@@ -150,10 +150,12 @@ export const Second = ({ data, handleChange, onSubmit, onBack }) => {
           <h2 className="font-semibold text-sm text-[#334155]">
             Confirm password
           </h2>
-          <h2 className="font-semibold text-sm text-[#E14942]">&nbsp;*</h2>
+          {error.date && (
+            <h2 className="font-semibold text-sm text-[#E14942]">&nbsp; *</h2>
+          )}
         </div>
         <Input
-          className="w-full h-11 rounded-lg border p-3 text-[#121316] "
+          className={`w-full h-11 rounded-lg border p-3  ${error.confirmPassword ? " text-[#E14942]" : "text-[#121316]"}`}
           placeholder="Confirm password"
           type="password"
           inputName="confirmPassword"
@@ -161,7 +163,7 @@ export const Second = ({ data, handleChange, onSubmit, onBack }) => {
         />
         <p className="text-[#E14942] text-sm">{error.confirmPassword}</p>
       </div>
-      <div className="flex gap-2 ">
+      <div className="flex gap-2 mb-8">
         <div className="flex justify-center bg-white text-black w-32 text-base rounded-md border border-[#CBD5E1] font-medium">
           <Button text="&lt; Back" onClick={onBack} />
         </div>
