@@ -2,7 +2,7 @@
 import { Button } from "./Button";
 import { Input } from "./Input";
 import { useState } from "react";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 
 export const Second = ({ data, handleChange, onSubmit, onBack }) => {
   const [error, setError] = useState({

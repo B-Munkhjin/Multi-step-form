@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Button } from "./Button";
 import { Input } from "./Input";
 import { differenceInYears } from "date-fns";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 
 export const Third = ({ data, handleChange, onSubmit, onBack }) => {
   const [error, setError] = useState({

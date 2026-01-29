@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { First } from "./components/First";
 import { Second } from "./components/Second";
 import { Third } from "./components/Third";

@@ -2,7 +2,7 @@
 import { Button } from "./Button";
 import { Input } from "./Input";
 import { useState } from "react";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 
 export const First = ({ data, handleChange, onSubmit }) => {
   // const [value, setValue]=useState({
@@ -70,9 +70,7 @@ export const First = ({ data, handleChange, onSubmit }) => {
         userName: "",
       }));
     }
-    if (valid === true) {
-      (localStorage.setItem("form", JSON.stringify(data)), onSubmit());
-    }
+    if (valid === true) onSubmit();
   };
   console.log(data);
 
