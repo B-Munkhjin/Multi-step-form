@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-export const Last = () => {
+const Last = () => {
   return (
     <motion.div
       initial={{ x: 80, opacity: 0 }}
@@ -21,3 +21,4 @@ export const Last = () => {
     </motion.div>
   );
 };
+export default Last;

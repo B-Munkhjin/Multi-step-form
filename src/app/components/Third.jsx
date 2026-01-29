@@ -5,7 +5,7 @@ import { Input } from "./Input";
 import { differenceInYears } from "date-fns";
 import { motion } from "framer-motion";
 
-export const Third = ({ data, handleChange, onSubmit, onBack }) => {
+const Third = ({ data, handleChange, onSubmit, onBack }) => {
   const [error, setError] = useState({
     date: "",
     img: "",
@@ -157,3 +157,4 @@ export const Third = ({ data, handleChange, onSubmit, onBack }) => {
     </motion.div>
   );
 };
+export default Third;

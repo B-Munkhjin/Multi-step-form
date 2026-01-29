@@ -4,7 +4,7 @@ import { Input } from "./Input";
 import { useState } from "react";
 import { motion } from "framer-motion";
 
-export const Second = ({ data, handleChange, onSubmit, onBack }) => {
+const Second = ({ data, handleChange, onSubmit, onBack }) => {
   const [error, setError] = useState({
     email: "",
     phoneNumber: "",
@@ -219,3 +219,4 @@ export const Second = ({ data, handleChange, onSubmit, onBack }) => {
     </motion.div>
   );
 };
+export default Second;
