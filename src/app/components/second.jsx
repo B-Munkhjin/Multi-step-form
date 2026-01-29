@@ -2,6 +2,7 @@
 import { Button } from "./Button";
 import { Input } from "./Input";
 import { useState } from "react";
+import { motion } from "motion/react";
 
 export const Second = ({ data, handleChange, onSubmit, onBack }) => {
   const [error, setError] = useState({
@@ -97,80 +98,120 @@ export const Second = ({ data, handleChange, onSubmit, onBack }) => {
   };
 
   return (
-    <div className="flex flex-col justify-between h-132.5">
-      <div className="flex flex-col gap-2">
-        <div className="flex w-full">
-          <h2 className="font-semibold text-sm text-[#334155]">Email</h2>
-          {error.date && (
-            <h2 className="font-semibold text-sm text-[#E14942]">&nbsp; *</h2>
-          )}
+    <motion.div
+      initial={{ x: 80, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      transition={{ duration: 0.7 }}
+    >
+      <div className="m-auto relative top-45.5 w-120 h-full rounded-lg p-8 bg-white gap-7 ">
+        <div className="flex flex-col h-32.25 gap-2 justify-start">
+          <img src="/pinecone.png" className="w-15 h-15" />
+          <h1 className="font-semibold text-[26px] text-[#202124] text-shadow-[0px_4px_4px_rgba(0,0,0,0.25)]">
+            Join Us! 😎
+          </h1>
+          <p className="text-lg text-[#8E8E8E] ">
+            Please provide all current information accurately.
+          </p>
         </div>
-        <Input
-          className={`w-full h-11 rounded-lg border p-3  ${error.email ? " text-[#E14942]" : "text-[#121316]"}`}
-          placeholder="Email"
-          type="text"
-          inputName="email"
-          onChange={handleChange}
-        />
-        <p className="text-[#E14942] text-sm">{error.email}</p>
+        <div className="flex flex-col">
+          <div className="relative top-7">
+            <div className="flex flex-col justify-between h-132.5">
+              <div className="flex flex-col gap-2">
+                <div className="flex w-full">
+                  <h2 className="font-semibold text-sm text-[#334155]">
+                    Email
+                  </h2>
+                  {error.date && (
+                    <h2 className="font-semibold text-sm text-[#E14942]">
+                      &nbsp; *
+                    </h2>
+                  )}
+                </div>
+                <Input
+                  className={`w-full h-11 rounded-lg border p-3  ${error.email ? " text-[#E14942]" : "text-[#121316]"}`}
+                  placeholder="Email"
+                  type="text"
+                  inputName="email"
+                  onChange={handleChange}
+                />
+                <p className="text-[#E14942] text-sm">{error.email}</p>
 
-        <div className="flex w-full">
-          <h2 className="font-semibold text-sm text-[#334155]">Phone number</h2>
-          {error.date && (
-            <h2 className="font-semibold text-sm text-[#E14942]">&nbsp; *</h2>
-          )}
+                <div className="flex w-full">
+                  <h2 className="font-semibold text-sm text-[#334155]">
+                    Phone number
+                  </h2>
+                  {error.date && (
+                    <h2 className="font-semibold text-sm text-[#E14942]">
+                      &nbsp; *
+                    </h2>
+                  )}
+                </div>
+                <Input
+                  className={`w-full h-11 rounded-lg border p-3  ${error.phoneNumber ? " text-[#E14942]" : "text-[#121316]"}`}
+                  placeholder="Phone number"
+                  type="number"
+                  inputName="phoneNumber"
+                  onChange={handleChange}
+                />
+                <p className="text-[#E14942] text-sm">{error.phoneNumber}</p>
+
+                <div className="flex w-full">
+                  <h2 className="font-semibold text-sm text-[#334155]">
+                    Password
+                  </h2>
+                  {error.date && (
+                    <h2 className="font-semibold text-sm text-[#E14942]">
+                      &nbsp; *
+                    </h2>
+                  )}
+                </div>
+
+                <Input
+                  className={`w-full h-11 rounded-lg border p-3  ${error.password ? " text-[#E14942]" : "text-[#121316]"}`}
+                  placeholder="Password"
+                  type="password"
+                  inputName="password"
+                  onChange={handleChange}
+                />
+
+                <p className="text-[#E14942] text-sm">{error.password}</p>
+
+                <div className="flex w-full">
+                  <h2 className="font-semibold text-sm text-[#334155]">
+                    Confirm password
+                  </h2>
+                  {error.date && (
+                    <h2 className="font-semibold text-sm text-[#E14942]">
+                      &nbsp; *
+                    </h2>
+                  )}
+                </div>
+                <Input
+                  className={`w-full h-11 rounded-lg border p-3  ${error.confirmPassword ? " text-[#E14942]" : "text-[#121316]"}`}
+                  placeholder="Confirm password"
+                  type="password"
+                  inputName="confirmPassword"
+                  onChange={handleChange}
+                />
+                <p className="text-[#E14942] text-sm">
+                  {error.confirmPassword}
+                </p>
+              </div>
+              <div className="flex gap-2 mb-8">
+                <div className="flex justify-center bg-white text-black w-32 text-base rounded-md border border-[#CBD5E1] font-medium">
+                  <Button text="&lt; Back" onClick={onBack} />
+                </div>
+                <div className="flex justify-center bg-[#121316] text-white w-70 py-2.5 px-1 text-base rounded-md font-medium">
+                  <Button
+                    text="Continue 2/3&nbsp; &gt;"
+                    onClick={handleSubmit}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <Input
-          className={`w-full h-11 rounded-lg border p-3  ${error.phoneNumber ? " text-[#E14942]" : "text-[#121316]"}`}
-          placeholder="Phone number"
-          type="number"
-          inputName="phoneNumber"
-          onChange={handleChange}
-        />
-        <p className="text-[#E14942] text-sm">{error.phoneNumber}</p>
-
-        <div className="flex w-full">
-          <h2 className="font-semibold text-sm text-[#334155]">Password</h2>
-          {error.date && (
-            <h2 className="font-semibold text-sm text-[#E14942]">&nbsp; *</h2>
-          )}
-        </div>
-
-        <Input
-          className={`w-full h-11 rounded-lg border p-3  ${error.password ? " text-[#E14942]" : "text-[#121316]"}`}
-          placeholder="Password"
-          type="password"
-          inputName="password"
-          onChange={handleChange}
-        />
-
-        <p className="text-[#E14942] text-sm">{error.password}</p>
-
-        <div className="flex w-full">
-          <h2 className="font-semibold text-sm text-[#334155]">
-            Confirm password
-          </h2>
-          {error.date && (
-            <h2 className="font-semibold text-sm text-[#E14942]">&nbsp; *</h2>
-          )}
-        </div>
-        <Input
-          className={`w-full h-11 rounded-lg border p-3  ${error.confirmPassword ? " text-[#E14942]" : "text-[#121316]"}`}
-          placeholder="Confirm password"
-          type="password"
-          inputName="confirmPassword"
-          onChange={handleChange}
-        />
-        <p className="text-[#E14942] text-sm">{error.confirmPassword}</p>
       </div>
-      <div className="flex gap-2 mb-8">
-        <div className="flex justify-center bg-white text-black w-32 text-base rounded-md border border-[#CBD5E1] font-medium">
-          <Button text="&lt; Back" onClick={onBack} />
-        </div>
-        <div className="flex justify-center bg-[#121316] text-white w-70 py-2.5 px-1 text-base rounded-md font-medium">
-          <Button text="Continue 2/3&nbsp; &gt;" onClick={handleSubmit} />
-        </div>
-      </div>
-    </div>
+    </motion.div>
   );
 };
