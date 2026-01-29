@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import First from "./Components/First";
-import Second from "./Components/Second";
-import Third from "./Components/Third";
-import Last from "./Components/Last";
+import First from "./components/First";
+import Second from "./components/Second";
+import Third from "./components/Third";
+import Last from "./components/Last";
 
 export default function Home() {
   const [step, setStep] = useState(1);
