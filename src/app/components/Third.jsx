@@ -2,12 +2,21 @@
 import { useState } from "react";
 import { Button } from "./Button";
 import { Input } from "./Input";
+import { differenceInDays, differenceInYears } from "date-fns";
 
 export const Third = ({ data, handleChange, onSubmit, onBack }) => {
   const [error, setError] = useState({
     date: "",
     img: "",
   });
+
+  const birthday = new Date(data.date);
+  const today = new Date();
+
+  const difference = differenceInYears(today, birthday);
+
+  console.log(difference);
+
   const handleSubmit = () => {
     let valid = true;
 
@@ -15,6 +24,12 @@ export const Third = ({ data, handleChange, onSubmit, onBack }) => {
       setError((prev) => ({
         ...prev,
         date: "Please select a date.",
+      }));
+      valid = false;
+    } else if (difference <= 18) {
+      setError((prev) => ({
+        ...prev,
+        date: "You must be 18 years old or above.",
       }));
       valid = false;
     } else {
@@ -39,15 +54,14 @@ export const Third = ({ data, handleChange, onSubmit, onBack }) => {
     if (valid) onSubmit();
   };
 
-  const [preview, setPreview] = useState(null);
+  const [img, setImg] = useState(null);
 
   const image = (e) => {
-    const file = e.target.files[0];
+    const file = e.target.files[0]; // songogdson file haruulah
     if (!file) return; // file bish bol bolih
 
     const url = URL.createObjectURL(file);
-    setPreview((prev) => {
-      if (prev) URL.revokeObjectURL(prev);
+    setImg(() => {
       return url;
     });
   };
@@ -67,7 +81,6 @@ export const Third = ({ data, handleChange, onSubmit, onBack }) => {
           <Input
             className={`w-full h-11 rounded-lg border p-3  ${error.date ? " text-[#E14942]" : "text-[#121316]"}`}
             type="date"
-            placeholder="2000.01.01"
             inputName="date"
             onChange={handleChange}
           />
@@ -95,10 +108,10 @@ export const Third = ({ data, handleChange, onSubmit, onBack }) => {
             onChange={image}
             className={`absolute w-104 h-45 rounded-lg text-transparent border ${error.img ? " border-[#E14942]" : "text-[#121316]"}`}
           />
-          {preview && (
+          {img && (
             <img
-              src={preview}
-              alt="preview"
+              src={img}
+              alt="previewImg"
               className="absolute w-104 h-45 rounded-lg object-cover bg-cover"
             />
           )}
