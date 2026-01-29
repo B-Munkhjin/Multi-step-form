@@ -103,6 +103,7 @@ export const Third = ({ data, handleChange, onSubmit, onBack }) => {
                     type="date"
                     inputName="date"
                     onChange={handleChange}
+                    value={data.date}
                   />
                   <p className="text-[#E14942] text-sm">{error.date}</p>
                 </div>
@@ -128,6 +129,7 @@ export const Third = ({ data, handleChange, onSubmit, onBack }) => {
                     accept="image/*"
                     onClick={handleChange}
                     onChange={image}
+                    value={data.img}
                     className={`absolute w-104 h-45 rounded-lg text-transparent border ${error.img ? " border-[#E14942]" : "text-[#121316]"}`}
                   />
                   {img && (

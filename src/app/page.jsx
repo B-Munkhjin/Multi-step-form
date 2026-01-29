@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { First } from "./components/First";
 import { Second } from "./components/Second";
 import { Third } from "./components/Third";
@@ -19,7 +19,7 @@ export default function Home() {
     date: "",
     img: "",
   });
-
+  console.log(data, "local data");
   const handleChange = (e) => {
     const { name, value } = e.target;
     setData((prev) => ({ ...prev, [name]: value }));

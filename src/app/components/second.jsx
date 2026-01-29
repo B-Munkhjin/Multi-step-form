@@ -133,6 +133,7 @@ export const Second = ({ data, handleChange, onSubmit, onBack }) => {
                   type="text"
                   inputName="email"
                   onChange={handleChange}
+                  value={data.email}
                 />
                 <p className="text-[#E14942] text-sm">{error.email}</p>
 
@@ -152,6 +153,7 @@ export const Second = ({ data, handleChange, onSubmit, onBack }) => {
                   type="number"
                   inputName="phoneNumber"
                   onChange={handleChange}
+                  value={data.phoneNumber}
                 />
                 <p className="text-[#E14942] text-sm">{error.phoneNumber}</p>
 
@@ -172,6 +174,7 @@ export const Second = ({ data, handleChange, onSubmit, onBack }) => {
                   type="password"
                   inputName="password"
                   onChange={handleChange}
+                  value={data.password}
                 />
 
                 <p className="text-[#E14942] text-sm">{error.password}</p>
@@ -192,6 +195,7 @@ export const Second = ({ data, handleChange, onSubmit, onBack }) => {
                   type="password"
                   inputName="confirmPassword"
                   onChange={handleChange}
+                  value={data.confirmPassword}
                 />
                 <p className="text-[#E14942] text-sm">
                   {error.confirmPassword}

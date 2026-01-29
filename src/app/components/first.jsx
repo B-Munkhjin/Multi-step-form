@@ -5,12 +5,18 @@ import { useState } from "react";
 import { motion } from "motion/react";
 
 export const First = ({ data, handleChange, onSubmit }) => {
+  // const [value, setValue]=useState({
+  //   firstName:"",
+  //   lastName:"",
+  //   userName:""
+  // })
+  // const
+
   const [error, setError] = useState({
     firstName: "",
     lastName: "",
     userName: "",
   });
-
   // (/^[а-яА-ЯӨөҮүЁё\s-]+$/.test(formData.firstName))
   const handleSubmit = () => {
     let valid = true;
@@ -64,8 +70,11 @@ export const First = ({ data, handleChange, onSubmit }) => {
         userName: "",
       }));
     }
-    if (valid === true) onSubmit();
+    if (valid === true) {
+      (localStorage.setItem("form", JSON.stringify(data)), onSubmit());
+    }
   };
+  console.log(data);
 
   return (
     <motion.div
@@ -103,6 +112,7 @@ export const First = ({ data, handleChange, onSubmit }) => {
                   type="text"
                   inputName="firstName"
                   onChange={handleChange}
+                  value={data.firstName}
                 />
                 <p className="text-[#E14942] text-sm">{error.firstName}</p>
 
@@ -123,6 +133,7 @@ export const First = ({ data, handleChange, onSubmit }) => {
                     type="text"
                     inputName="lastName"
                     onChange={handleChange}
+                    value={data.lastName}
                   />
                   <p className="text-[#E14942] text-sm">{error.lastName}</p>
                 </div>
@@ -144,6 +155,7 @@ export const First = ({ data, handleChange, onSubmit }) => {
                     type="text"
                     inputName="userName"
                     onChange={handleChange}
+                    value={data.userName}
                   />
                   <p className="text-[#E14942] text-sm mb-8">
                     {error.userName}
@@ -164,6 +176,4 @@ export const First = ({ data, handleChange, onSubmit }) => {
       </div>
     </motion.div>
   );
-  //input oruulaad bolson bol border color tsenher bolno
-  //boloogui bol ulaan bolno
 };
