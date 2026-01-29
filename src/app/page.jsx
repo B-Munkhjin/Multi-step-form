@@ -19,7 +19,6 @@ export default function Home() {
     date: "",
     img: "",
   });
-  console.log(data, "local data");
   const handleChange = (e) => {
     const { name, value } = e.target;
     setData((prev) => ({ ...prev, [name]: value }));
