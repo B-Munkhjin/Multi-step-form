@@ -4,7 +4,7 @@ import { Input } from "./Input";
 import { useState } from "react";
 import { motion } from "framer-motion";
 
-export const First = ({ data, handleChange, onSubmit }) => {
+const First = ({ data, handleChange, onSubmit }) => {
   const [error, setError] = useState({
     firstName: "",
     lastName: "",
@@ -168,3 +168,5 @@ export const First = ({ data, handleChange, onSubmit }) => {
     </motion.div>
   );
 };
+
+export default First;

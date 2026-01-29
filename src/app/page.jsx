@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { First } from "./components/First";
+import First from "./components/First";
 import { Second } from "./components/Second";
 import { Third } from "./components/Third";
 import { Last } from "./components/Last";
