@@ -63,11 +63,15 @@ const Second = ({ data, handleChange, onSubmit, onBack }) => {
         password: "Password cannot be empty.",
       }));
       valid = false;
-    } else if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6}$/.test(data.password)) {
+    } else if (
+      !/^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{6,}$/.test(
+        data.password,
+      )
+    ) {
       setError((prev) => ({
         ...prev,
         password:
-          "Password must be exact 6 character with at least one letter and one number.",
+          "Password must be above 6 character with at least one letter and one number.",
       }));
       valid = false;
     } else {
@@ -150,7 +154,7 @@ const Second = ({ data, handleChange, onSubmit, onBack }) => {
                 <Input
                   className={`w-full h-11 rounded-lg border p-3  ${error.phoneNumber ? " text-[#E14942]" : "text-[#121316]"}`}
                   placeholder="Phone number"
-                  type="number"
+                  type="text"
                   inputName="phoneNumber"
                   onChange={handleChange}
                   value={data.phoneNumber}

@@ -19,10 +19,10 @@ const First = ({ data, handleChange, onSubmit }) => {
         firstName: "First name cannot be empty.",
       }));
       valid = false;
-    } else if (/[^a-zA-Z]/.test(data.firstName)) {
+    } else if (/[^a-zA-Z-]/.test(data.firstName)) {
       setError((prev) => ({
         ...prev,
-        firstName: "First name cannot contain special characters or numbers.",
+        firstName: "First name cannot contain numbers.",
       }));
       valid = false;
     } else {
@@ -38,10 +38,10 @@ const First = ({ data, handleChange, onSubmit }) => {
         lastName: "Last name cannot be empty.",
       }));
       valid = false;
-    } else if (/[^a-zA-Z]/.test(data.lastName)) {
+    } else if (/[^a-zA-Z-]/.test(data.lastName)) {
       setError((prev) => ({
         ...prev,
-        lastName: "Last name cannot contain special characters or numbers.",
+        lastName: "Last name cannot contain numbers.",
       }));
       valid = false;
     } else {
