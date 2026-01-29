@@ -5,13 +5,6 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 
 export const First = ({ data, handleChange, onSubmit }) => {
-  // const [value, setValue]=useState({
-  //   firstName:"",
-  //   lastName:"",
-  //   userName:""
-  // })
-  // const
-
   const [error, setError] = useState({
     firstName: "",
     lastName: "",
@@ -98,7 +91,7 @@ export const First = ({ data, handleChange, onSubmit }) => {
                   <h1 className="font-semibold text-sm text-[#334155]">
                     First name
                   </h1>
-                  {error.date && (
+                  {error.firstName && (
                     <h1 className="font-semibold text-sm text-[#E14942]">
                       &nbsp; *
                     </h1>
@@ -119,7 +112,7 @@ export const First = ({ data, handleChange, onSubmit }) => {
                     <h1 className="font-semibold text-sm text-[#334155]">
                       Last name
                     </h1>
-                    {error.date && (
+                    {error.lastName && (
                       <h1 className="font-semibold text-sm text-[#E14942]">
                         &nbsp; *
                       </h1>
@@ -141,7 +134,7 @@ export const First = ({ data, handleChange, onSubmit }) => {
                     <h1 className="font-semibold text-sm text-[#334155]">
                       Username
                     </h1>
-                    {error.date && (
+                    {error.userName && (
                       <h1 className="font-semibold text-sm text-[#E14942]">
                         &nbsp; *
                       </h1>

@@ -121,7 +121,7 @@ export const Second = ({ data, handleChange, onSubmit, onBack }) => {
                   <h2 className="font-semibold text-sm text-[#334155]">
                     Email
                   </h2>
-                  {error.date && (
+                  {error.email && (
                     <h2 className="font-semibold text-sm text-[#E14942]">
                       &nbsp; *
                     </h2>
@@ -141,7 +141,7 @@ export const Second = ({ data, handleChange, onSubmit, onBack }) => {
                   <h2 className="font-semibold text-sm text-[#334155]">
                     Phone number
                   </h2>
-                  {error.date && (
+                  {error.phoneNumber && (
                     <h2 className="font-semibold text-sm text-[#E14942]">
                       &nbsp; *
                     </h2>
@@ -161,7 +161,7 @@ export const Second = ({ data, handleChange, onSubmit, onBack }) => {
                   <h2 className="font-semibold text-sm text-[#334155]">
                     Password
                   </h2>
-                  {error.date && (
+                  {error.password && (
                     <h2 className="font-semibold text-sm text-[#E14942]">
                       &nbsp; *
                     </h2>
@@ -183,7 +183,7 @@ export const Second = ({ data, handleChange, onSubmit, onBack }) => {
                   <h2 className="font-semibold text-sm text-[#334155]">
                     Confirm password
                   </h2>
-                  {error.date && (
+                  {error.confirmPassword && (
                     <h2 className="font-semibold text-sm text-[#E14942]">
                       &nbsp; *
                     </h2>

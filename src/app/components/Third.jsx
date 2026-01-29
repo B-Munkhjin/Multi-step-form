@@ -111,7 +111,7 @@ export const Third = ({ data, handleChange, onSubmit, onBack }) => {
                   <h3 className="font-semibold text-sm text-[#334155]">
                     Profile image
                   </h3>
-                  {error.date && (
+                  {error.img && (
                     <h3 className="font-semibold text-sm text-[#E14942]">
                       &nbsp; *
                     </h3>
